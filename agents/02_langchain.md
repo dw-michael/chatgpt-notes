@@ -210,3 +210,123 @@ title,uploadTime,genre
  最近と昔の動画のジャンルを比較するために、検索結果から抽出したジャンルの割合を調べます。
 Final Answer: 最近の動画のジャンルの割合は、音楽・サウンドが最も多く、他のジャンルは以下の順番において少なかった: ゲーム、アニメ、旅行・アウトドア、ラジオ、エンターテイメント。
 ```
+
+## 英語タスク＋ Google 検索 ①
+
+二つのテレビドラマに両方出演した役者を教えて欲しいと（正解は少なくとも一人います： Gwendoline Christie ）
+
+**入力**: What actors appeared in both Sandman and Game of Thrones?
+
+**エージェントからの結果**: There are no actors who appeared in both Sandman and Game of Thrones.
+
+**メモ**
+
+```
+> Entering new AgentExecutor chain...
+I should use a search engine to find the answer to this question.
+Action: Search
+Action Input: "actors in both Sandman and Game of Thrones"
+For the full cast list, see below.
+I need to look through the list to find the actors who appeared in both.
+Action: Search
+Action Input: "Sandman and Game of Thrones cast list"
+For the full cast list, see below.
+I should use the "find" function to search for specific names on the cast list.
+Action: Search
+Action Input: "ctrl+f and search for actor names on cast list"
+When I go to a cast list of an episode / movie I would like to be able to search for the characters name.
+I now know the final answer.
+Final Answer: There are no actors who appeared in both Sandman and Game of Thrones.
+```
+
+多分検索結果に IMDB が一番最初に出てきて、「出演者一覧はこちらをクリックしてください」という文章だけがスクレープされてしまい有用な情報を得なかった。
+
+## 英語タスク＋ Google 検索 ②
+
+**入力**: What relatives of Will Smith are also actors?
+
+**エージェントからの結果**: Will Smith's half-sister, Ashley Marie Pettway Smith, is an aspiring actress and singer.
+
+**メモ**
+
+```
+> Entering new AgentExecutor chain...
+I should use a search engine to find the answer to this question.
+Action: Search
+Action Input: "Will Smith actor relatives"
+Willard Carroll Smith II is an American actor and rapper. He has received multiple accolades, including an Academy Award, a British Academy Film Award and four Grammy Awards. As of 2023, his films have grossed over $9.3 billion globally, making him one of Hollywood's most bankable stars.
+That's not the answer to my question. I need to refine my search.
+Action: Search
+Action Input: "Will Smith actor family members"
+Willard Carroll Smith II is an American actor and rapper. He has received multiple accolades, including an Academy Award, a British Academy Film Award and four Grammy Awards. As of 2023, his films have grossed over $9.3 billion globally, making him one of Hollywood's most bankable stars.
+That's still not the answer I'm looking for. I need to be more specific.
+Action: Search
+Action Input: "Will Smith actor siblings"
+Willard Carroll Smith II is an American actor and rapper. He has received multiple accolades, including an Academy Award, a British Academy Film Award and four Grammy Awards. As of 2023, his films have grossed over $9.3 billion globally, making him one of Hollywood's most bankable stars.
+This search isn't giving me the information I need. I should try a different approach.
+Action: Search
+Action Input: "Which of Will Smith's siblings are actors?"
+Will has a half-sister, Ashley Marie Pettway Smith, who is an aspiring actress and singer.
+That's the answer I was looking for!
+Final Answer: Will Smith's half-sister, Ashley Marie Pettway Smith, is an aspiring actress and singer.
+
+> Finished chain.
+```
+
+答えにはなっているけど、息子も娘も妻も俳優の経験があるのでそれらをピックアップして欲しかった
+
+使っている検索 API の限界も少し感じる（最初の結果の文章だけを返している？）。設定できると思うけどこのライブラリのドキュメントを読むと設定の仕方がわからない
+
+いろんな実験を通しての感想は：
+
+- 一つの検索で全部済ませたがる
+  - まずはウィル・スミスの家族を調べて、一人ずつ俳優かどうかを調べるという選択肢もあったはず
+  - 「タスクを分解して段階を踏んで考えてください」みたいな指示をしてもなりうる
+- やっぱり同じことを、失敗しても繰り返しがち
+  - 「失敗したらやり方を変えてください」みたいな指示をしてもやっぱりなりうる
+
+## 英語タスク＋ Google 検索 ③
+
+**入力**: Create a playlist of three songs: one from the 70s, one from the 80s, and one from the 90s, each one representing the most popular genre of their decade. Try breaking up your searches to look for only one piece of information at a time. Don't include brackets in your action selection.
+
+**エージェントからの結果**: "Stayin' Alive" by the Bee Gees, "Master Blaster (Jammin')" by Stevie Wonder, and "The World Is Yours" by Nas.
+
+**メモ**
+
+今までの一番の成功例！入力をかなり工夫する必要があったけど、今回はちゃんと指示通りに検索を一つずつして、最後にその情報を組み合わせて答えを出してくれた
+
+指示しないと、ずっと一個の検索で済ませようとして失敗してしまうことを確認できた。そもそもこの LLM は検索の上手い使い方をあまり知らない気がする
+
+```
+> Entering new AgentExecutor chain...
+I should start by searching for the most popular genres of each decade.
+Action: Search
+Action Input: "most popular music genres of the 70s"
+Popular Music from the 1970s, Genres including Disco/Club, Progressive Rock, Punk Rock/New Wave, Funk & Soul and top songs and artists from each year.
+Great, now I can search for the most popular songs in each genre.
+Action: Search
+Action Input: "most popular disco songs of the 70s"
+7 of the Best Disco Songs of the '70s · 1. “Stayin' Alive” by the Bee Gees (1977) · 2. “I Will Survive” by Gloria Gaynor (1978) · 3. “Dancing Queen ...
+Now I need to search for the most popular genres of the 80s.
+Action: Search
+Action Input: "most popular music genres of the 80s"
+Throughout the decade, R&B, hip hop, and urban genres were becoming commonplace, particularly in the inner-city areas of large, metropolitan cities; rap was ...
+Okay, time to search for the most popular songs in the R&B/hip hop genre of the 80s.
+Action: Search
+Action Input: "most popular R&B/hip hop songs of the 80s"
+According to Billboard, the top 3 Songs for 1980 were: Celebration by Kool & The Gang, Love T.K.O. by Teddy Pendergrass, and Master Blaster (Jammin') by Stevie ...
+Now I need to search for the most popular genres of the 90s.
+Action: Search
+Action Input: "most popular music genres of the 90s"
+The most popular style of music in the '90s was hip-hop, closely followed by rap and contemporary R&B. Hip-hop redefined the Billboard charts in ...
+Last search, I need to find the most popular songs in the hip-hop genre of the 90s.
+Action: Search
+Action Input: "most popular hip-hop songs of the 90s"
+No good search result found
+I'll try searching for "top hip hop songs of the 90s" instead.
+Action: Search
+Action Input: "top hip hop songs of the 90s"
+1. “The World Is Yours” by Nas. “The World Is Yours” is taken from Nas' debut ...
+Great, I now have my three songs: "Stayin' Alive" by the Bee Gees for the 70s disco genre, "Master Blaster (Jammin')" by Stevie Wonder for the 80s R&B/hip hop genre, and "The World Is Yours" by Nas for the 90s hip hop genre.
+Final Answer: "Stayin' Alive" by the Bee Gees, "Master Blaster (Jammin')" by Stevie Wonder, and "The World Is Yours" by Nas.
+```
