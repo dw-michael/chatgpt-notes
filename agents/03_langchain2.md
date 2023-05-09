@@ -93,3 +93,68 @@ Final Answer: Game had the most overall likes last year.
 
 > Finished chain.
 ```
+
+# 実験 2：変数保存の機能を追加、LLM 機能を追加
+
+- `save_variable` 関数を追加して、計算結果を保存できるように
+- LLM ツールを追加して、保存した変数のデータを渡せるように
+  - メインのエージェントももちろん言語系のタスクはできるが、トークン数節約のためにうまく分担してもらう
+
+**入力**: "Current time: {datetime.datetime.now()}. Extract popular keywords in the game genre from March this year, and do the same for April. What changes can be observed between the two months? Remember titles and descriptions are in Japanese and cannot be analyzed like English, and descriptions must be requested. Use variables and delegate tasks to reduce the amount of text you must process, but give your final answer explicitly, using the designated format."
+
+**過程**
+
+```
+> Entering new AgentExecutor chain...
+I need to use the NicoNico video search to extract videos in the game genre from March and April, and include their descriptions. Then, I can use a language model to extract the keywords from the descriptions and compare them between the two months. I should save the search results as variables to reduce the amount of text I need to process.
+Action: NicoNico video search
+Action Input:
+March search:
+{
+    "query": "",
+    "genre": "game",
+    "uploaded before": "2023-04-01T00:00:00+09:00",
+    "uploaded after": "2023-03-01T00:00:00+09:00",
+    "include description": true,
+    "sort by": "viewCount",
+    "sort order": "descending",
+    "page": 0
+}
+Observation: Found 15 search results, stored in variable `search_results_0` with format [{'genre': ..., 'description': ..., 'playlistCount': ..., 'viewCount': ..., 'title': ..., 'commentCount': ..., 'likeCount': ...}, ...]. Variable can be accessed from Python interpreter
+Now I need to repeat the same search for April and save the results in a different variable.
+Action: NicoNico video search
+Action Input:
+April search:
+{
+    "query": "",
+    "genre": "game",
+    "uploaded before": "2023-05-01T00:00:00+09:00",
+    "uploaded after": "2023-04-01T00:00:00+09:00",
+    "include description": true,
+    "sort by": "viewCount",
+    "sort order": "descending",
+    "page": 0
+}
+Observation: Found 15 search results, stored in variable `search_results_1` with format [{'genre': ..., 'description': ..., 'playlistCount': ..., 'viewCount': ..., 'title': ..., 'commentCount': ..., 'likeCount': ...}, ...]. Variable can be accessed from Python interpreterNow I need to use a language model to extract keywords from the descriptions of the videos in each variable. Then, I can compare the keywords between the two months to see what changes there are.
+Action: Language model
+Action Input:
+{
+    "query": "Extract keywords from video descriptions",
+    "data description": "List of video descriptions from March",
+    "data variable": "search_results_0"
+}
+
+Observation: Keywords: P1グランプリ, ネビル立ち絵, YouTub, ニコ生, ツイッター, チャンネル, タラぴょん, マシュマロ, VOICEVOX, 米津玄師, クトゥルフ神話TRPG, メジャーWii, VRエロゲー, Kenshi, 高杉晋作, Fate/Grand Order, ダンガンロンパ, Switch
+Now I need to repeat the same language model extraction for the April search results.
+Action: Language model
+Action Input:
+{
+    "query": "Extract keywords from video descriptions",
+    "data description": "List of video descriptions from April",
+    "data variable": "search_results_1"
+}
+
+Observation: Keywords: YouTube, ゲーム, 動画, 実況プレイ, ダンガンロンパ, Microsoft Flight Simulator, 鳳凰山のお話, アパシー稲葉百万鉄in鳴神学園霊怪記, Mount & Blade 2 Bannerlord, USロックバンドNIRVANA
+
+Comparing the two sets of keywords, it seems that in April there were more videos related to Microsoft Flight Simulator and Mount & Blade 2 Bannerlord, while in March there were more videos related to P1グランプリ and Fate/Grand Order. There were also some general keywords that appeared in both months, such as YouTube and ダンガンロンパ.
+```
