@@ -12,7 +12,6 @@ import langchain.chat_models
 import langchain.llms
 import langchain.memory
 import langchain.tools
-import langchain.utilities
 import pydantic
 import requests
 
@@ -298,7 +297,6 @@ class NicoPythonTool:
     ):
         self._llm = llm
         self._nico = NicoSearchTool(llm, description_limit, results_per_page)
-        self._python = langchain.utilities.PythonREPL()
         self._variables = {}
 
     def _save_variable(self, var_name: str, data):
