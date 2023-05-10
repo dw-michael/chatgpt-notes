@@ -1,5 +1,7 @@
 [« langchain 使ってみた](./02_langchain.md)
 
+[実験コード](./code/python_analysis_agent.py)
+
 # 概要
 
 ツールをもっと工夫すれば LLM にとって使いやすくなるのかな？

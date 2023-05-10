@@ -1,4 +1,4 @@
-[« エージェンとを実装してみる](./01_test_cooking_agent.md) [ツール工夫 »](./03_langchain2.md)
+[« エージェンとを実装してみる](./01_test_cooking_agent.md) | [ツール工夫 »](./03_langchain2.md)
 
 # 概要
 
