@@ -29,7 +29,7 @@ langchain に Python を実行するツールがある
 
 検索結果をそのまま LLM に渡すとトークン数が大変なことになるし重い
 
-ならば、**データを渡さずに、　 Python で扱ってもらうのはどう？**
+ならば、**データを渡さずに、 Python で扱ってもらうのはどう？**
 
 # 実験
 
@@ -135,7 +135,8 @@ April search:
     "sort order": "descending",
     "page": 0
 }
-Observation: Found 15 search results, stored in variable `search_results_1` with format [{'genre': ..., 'description': ..., 'playlistCount': ..., 'viewCount': ..., 'title': ..., 'commentCount': ..., 'likeCount': ...}, ...]. Variable can be accessed from Python interpreterNow I need to use a language model to extract keywords from the descriptions of the videos in each variable. Then, I can compare the keywords between the two months to see what changes there are.
+Observation: Found 15 search results, stored in variable `search_results_1` with format [{'genre': ..., 'description': ..., 'playlistCount': ..., 'viewCount': ..., 'title': ..., 'commentCount': ..., 'likeCount': ...}, ...]. Variable can be accessed from Python interpreter
+Now I need to use a language model to extract keywords from the descriptions of the videos in each variable. Then, I can compare the keywords between the two months to see what changes there are.
 Action: Language model
 Action Input:
 {
