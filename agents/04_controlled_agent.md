@@ -1,4 +1,4 @@
-[« ツール工夫](./03_langchain2.md)
+[« ツール工夫](./03_langchain2.md) | | [制御エージェント v2 »](./05_controlled_agent2.md)
 
 # 概要
 

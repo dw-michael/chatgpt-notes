@@ -1,4 +1,4 @@
-[« langchain 使ってみた](./02_langchain.md) | [制御絵いージェント »](./04_controlled_agent.md)
+[« langchain 使ってみた](./02_langchain.md) | [制御エージェント »](./04_controlled_agent.md)
 
 [実験コード](./code/python_analysis_agent.py)
 
