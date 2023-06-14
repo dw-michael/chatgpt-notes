@@ -69,7 +69,7 @@ FROM watched_and_mylist
 
 `GROUP BY user_id` を追加したら（多分）正しい結果になる。
 
-## 実験１：マイリスの割合修正版
+## 実験２：マイリスの割合修正版
 
 ### 入力
 
@@ -169,3 +169,72 @@ ORDER BY
 ```
 
 `SQL compilation error: ambiguous column name 'USER_ID_NOHASH'` エラーが出るけど、それを手動で修正するとちゃんとエラーなしで実行できて正しそうな結果を返す。`dt` も、プロンプトに説明を入れたらちゃんと使ってくれている。
+
+## 実験３：フォローしたユーザーの投稿動画の視聴率
+
+### 入力
+
+> 直近１ヶ月でアクティブなユーザーそれぞれに対して、視聴した動画の何割がフォローしているユーザーが投稿した動画ですか？
+
+### 苦戦した点
+
+- タスクの意図を勘違いする（思考過程を書かせても）
+- 投稿者の情報を得るに必要な content_nicovideo_video_v2 テーブルを取得しない
+  - ベクトル検索で出てこなかったけど、検索のやり方を変えたら出るようになった
+  - 具体的に、検索に与える情報量を逆に減らした。LLM に必要そうな情報をリストアップしてもらって、それぞれの情報だけで検索をかけて、最後に一つのリストにまとめた
+- 意味のわからない SQL （謎のセルフジョインなど）
+  - 書いてもらった根拠が正しくても SQL がおかしくなることもある
+- 要らないテーブルを使ってしまう
+  - 情報を多めに出している（経験上、必要なテーブルが必ずトップ n に入る保証はない）ので使わなくていい情報も使ってしまう（フォローユーザーを集計したいのにマイリスを使ってしまう）
+
+### 出力例
+
+```sql
+-- Get active users who have watched videos in the last month
+WITH active_users AS (
+  SELECT DISTINCT user_id_nohash
+  FROM niconico.common_action.common_action_watch_event_v3
+  WHERE dt >= DATEADD(MONTH, -1, CURRENT_DATE())
+),
+
+-- Calculate the number of watched videos per user
+user_content AS (
+  SELECT user_id_nohash, COUNT(*) AS viewed_content_count
+  FROM niconico.common_action.common_action_watch_event_v3
+  WHERE dt >= DATEADD(MONTH, -1, CURRENT_DATE())
+  GROUP BY user_id_nohash
+),
+
+-- Calculate the number of watched videos per user that were posted by the users they follow
+user_follow_content AS (
+  SELECT
+    event.user_id_nohash,
+    COUNT(DISTINCT event.content_id) AS followed_content_count
+  FROM niconico.common_action.common_action_watch_event_v3 AS event
+    JOIN niconico.content.content_nicovideo_video_v2 AS video
+      ON event.content_id = video.content_id
+    JOIN niconico.content.content_saussure_followuser_v2 AS follow
+      ON event.user_id_nohash = follow.user_id_nohash
+      AND video.user_id = follow.followed_user_id_nohash
+  WHERE event.dt >= DATEADD(MONTH, -1, CURRENT_DATE())
+  GROUP BY event.user_id_nohash
+)
+
+-- Join to get the user's viewed video count and followed video count
+SELECT
+  active_users.user_id_nohash,
+  user_content.viewed_content_count,
+  user_follow_content.followed_content_count,
+  user_follow_content.followed_content_count / user_content.viewed_content_count AS fraction_followed_content
+FROM active_users
+  JOIN user_content ON active_users.user_id_nohash = user_content.user_id_nohash
+  LEFT JOIN user_follow_content ON active_users.user_id_nohash = user_follow_content.user_id_nohash;
+```
+
+問題点
+
+- そもそも `dt` で絞っているから、`active_users` は不要（あっても正しく実行できるけど）
+- `dt` は 'YYYYMMDD' 形式じゃないといけない
+- `user_id` と `user_id_nohash` をジョインしようとしている
+- `user_content` にある `COUNT(*)` は正しくは `COUNT(DISTINCT content_id)`
+- フォローユーザーの動画を視聴していない場合、 `NULL` を `0` に変換すべき
