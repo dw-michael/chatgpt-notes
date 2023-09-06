@@ -1,3 +1,5 @@
+[自動 Snowflake 改善 »](./02_auto_snowflake.md)
+
 # Fine-tuning 触ってみた
 
 ## データ

@@ -17,3 +17,4 @@ ChatGPT および大型言語モデルの調査をここにまとめます。
 - [自動エージェント 05](agents/05_controlled_agent2.md)
 - [自動エージェント 06](agents/06_snowflake_agent.md)
 - [Fine-tuning 01](fine_tuning/01_sat_questions.md)
+- [Fine-tuning 02](fine_tuning/02_auto_snowflake.md)
