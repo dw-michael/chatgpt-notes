@@ -1,4 +1,4 @@
-[« Fine-tuning 触ってみた](./01_sat_questions.md)
+[« Fine-tuning 触ってみた](./01_sat_questions.md) | [自動 Snowflake 改善 2 »](./03_auto_snowflake2.md)
 
 # 自動 Snowflake 改善
 
