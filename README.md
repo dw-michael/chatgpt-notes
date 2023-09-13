@@ -19,3 +19,4 @@ ChatGPT および大型言語モデルの調査をここにまとめます。
 - [Fine-tuning 01](fine_tuning/01_sat_questions.md)
 - [Fine-tuning 02](fine_tuning/02_auto_snowflake.md)
 - [Fine-tuning 03](fine_tuning/03_auto_snowflake2.md)
+- [Fine-tuning 04](fine_tuning/04_auto_snowflake3.md)

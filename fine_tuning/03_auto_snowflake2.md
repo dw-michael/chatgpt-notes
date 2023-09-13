@@ -1,4 +1,4 @@
-[« 自動 Snowflake 改善](./02_auto_snowflake.md)
+[« 自動 Snowflake 改善](./02_auto_snowflake.md) | [自動 Snowflake 改善 4 »](./04_auto_snowflake3.md)
 
 # 全体的感想
 
