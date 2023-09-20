@@ -1,4 +1,4 @@
-[« 自動 Snowflake 改善 3](./03_auto_snowflake2.md)
+[« 自動 Snowflake 改善 3](./03_auto_snowflake2.md) | [自動 Snowflake 改善 5 »](./05_auto_snowflake4.md)
 
 # 学習データ修正
 
@@ -494,3 +494,240 @@ ORDER BY c DESC
 - CTE の名前にカタカナ？！
 - タグをフィルターする処理が二重？（部分的）
 - シンプソン係数の計算はあるけど違うっぽい？そもそも c21 の集計があってない（c1 と全く同じ）
+
+## 例 5
+
+**出典：** https://github.o-in.dwango.co.jp/yaoyorozu/popbox-batch/blob/master/sql/nicobox.sql
+
+### 正解（実際のクエリ）
+
+```sql
+-- SnowflakeQL for Trinity
+
+with
+video_freshness as (
+    select
+        1 / (1 + exp( timestampdiff('seconds', to_timestamp(upload_datetime), current_timestamp) / (3600 * 24 * 30) - 4.0)) + 0.00001 as freshness,
+        content_id
+    from niconico.content.content_nicovideo_video_v2
+    where
+        delete_status = 0
+        and exclude_flag = 0
+        and current_timestamp(0) > to_timestamp(upload_datetime)
+),
+nicobox_master as (
+    select
+        s.content_id,
+        t.freshness as weight
+    from niconico.common_action.common_action_watch_event_v3 s
+    inner join video_freshness t on s.content_id = t.content_id
+    where
+        dt >= to_varchar(current_date - interval '${log_days} days', 'YYYYmmdd')
+        and frontend_id in (75, 76) and event_type = 'start'
+),
+pop_videos as (
+    select content_id, sum(weight) as weight
+    from nicobox_master
+    group by content_id
+),
+tag_weight as (
+    select regular_tag as tag, t.content_id, weight
+    from pop_videos s
+    inner join niconico.content.content_nicovideo_tag_v1 t on t.content_id = s.content_id
+),
+ranking as (
+    select tag, content_id, weight, rank() over (partition by tag order by weight desc) as rnk
+    from tag_weight
+)
+
+select
+    tag,
+    listagg(content_id, ',') within group (order by rnk asc)
+from ranking
+where rnk <= ${top_num}
+group by tag
+
+```
+
+### Fine-tuning なし（関数なし）※
+
+※レスポンス形式を守らなかった
+
+```sql
+WITH ranked_videos AS (
+  SELECT
+    cvv.content_id,
+    cvv.upload_datetime,
+    cnt.regular_tag,
+    COUNT(*) AS view_count,
+    ROW_NUMBER() OVER (PARTITION BY cnt.regular_tag ORDER BY COUNT(*) DESC) AS rank
+  FROM niconico.content.content_nicovideo_video_v2 cvv
+  INNER JOIN niconico.common_action.common_action_watch_event_v3 caw ON cvv.content_id = caw.content_id
+  INNER JOIN niconico.content.content_nicovideo_tag_v1 cnt ON cvv.content_id = cnt.content_id
+  WHERE caw.dt >= DATEADD(DAY, -${log_days}, CURRENT_DATE())
+  GROUP BY cvv.content_id, cvv.upload_datetime, cnt.regular_tag
+)
+SELECT regular_tag, ARRAY_AGG(content_id) AS video_ids
+FROM ranked_videos
+WHERE rank <= ${top_num}
+GROUP BY regular_tag
+ORDER BY regular_tag;
+```
+
+**感想**
+
+- dt の扱いがやはりあってない
+- 正解よりだいぶ短いけど意図はあってそう？
+
+### Fine-tuning なし（関数あり）
+
+```sql
+WITH
+  -- Filter the data based on the specified log_days parameter
+  filtered_data AS (
+    SELECT
+      content_id
+    FROM
+      niconico.content.content_nicovideo_video_v2
+    WHERE
+      upload_datetime >= DATEADD(DAY, -${log_days}, CURRENT_DATE())
+  ),
+  -- Join the video data with tag data
+  video_tags AS (
+    SELECT
+      v.content_id,
+      t.regular_tag
+    FROM
+      niconico.content.content_nicovideo_video_v2 v
+    INNER JOIN
+      niconico.content.content_nicovideo_tag_v1 t ON v.content_id = t.content_id
+    WHERE
+      v.content_id IN (SELECT content_id FROM filtered_data)
+  ),
+  -- Rank the videos by tag based on popularity
+  ranked_videos AS (
+    SELECT
+      regular_tag,
+      content_id,
+      ROW_NUMBER() OVER (PARTITION BY regular_tag ORDER BY content_id) AS rank
+    FROM
+      video_tags
+  )
+SELECT
+  regular_tag,
+  ARRAY_AGG(content_id) AS video_ids
+FROM
+  ranked_videos
+WHERE
+  rank <= ${top_num}
+GROUP BY
+  regular_tag
+```
+
+**感想**
+
+- TODO
+
+### Fine-tuning あり（関数未対応）
+
+```sql
+-- ニコニコ動画の人気動画をタグごとにランキングし、各タグごとの動画IDのリストを取得するクエリ
+
+WITH video_ranking AS (
+    SELECT content_nicovideo_video_v2.content_id, DENSE_RANK() OVER (ORDER BY c DESC) AS ranking
+    FROM niconico.content.content_nicovideo_video_v2
+    JOIN (
+        SELECT content_id
+        FROM niconico.common_action.common_action_watch_event_v3
+        WHERE event_type = 'start'
+        UNION DISTINCT
+        SELECT content_id
+        FROM niconico.common_action.common_action_watch_app_v3
+        WHERE event_type = 'start'
+    ) ON content_nicovideo_video_v2.content_id = content_id
+    JOIN (
+        SELECT content_id
+        FROM niconico.common_action.common_action_watch_event_v3
+        WHERE event_type = 'impression'
+        AND dt BETWEEN TO_CHAR(TO_DATE('${log_days}', 'yyyymmdd') - 7, 'yyyymmdd') AND '${log_days}'
+        UNION DISTINCT
+        SELECT content_id
+        FROM niconico.common_action.common_action_watch_app_v3
+        WHERE event_type = 'impression'
+        AND dt BETWEEN TO_CHAR(TO_DATE('${log_days}', 'yyyymmdd') - 7, 'yyyymmdd') AND '${log_days}'
+    ) ON content_nicovideo_video_v2.content_id = content_id
+    JOIN (
+        SELECT content_id
+        FROM niconico.content.content_nicovideo_tag_v1
+        GROUP BY content_id
+        QUALIFY ROW_NUMBER() OVER (PARTITION BY content_id ORDER BY regular_tag) <= 10
+    ) ON content_nicovideo_video_v2.content_id = content_id
+    CROSS JOIN
+        (SELECT content_id, COUNT(*) AS c
+        FROM niconico.common_action.common_action_watch_event_v3
+        WHERE event_type = 'play'
+        AND dt BETWEEN TO_CHAR(TO_DATE('${log_days}', 'yyyymmdd') - 7, 'yyyymmdd') AND '${log_days}'
+        GROUP BY content_id
+    )
+),
+tag_log AS (
+    SELECT content_id, regular_tag AS tag
+    FROM niconico.content.content_nicovideo_tag_v1
+    WHERE regular_tag IS NOT NULL
+    UNION DISTINCT
+    SELECT content_id, action_tag AS tag
+n    FROM (
+            SELECT content_id, action_tag
+                , ROW_NUMBER()
+                    OVER (PARTITION BY content_id, action_tag
+                          ORDER BY tag_rank_score_{score_type} DESC) AS r
+                , last_query_score
+            FROM niconico.content.content_nicovideo_tag_algo_v1
+            WHERE run_date = TO_DATE('${log_days}', 'yyyymmdd')
+            QUALIFY tag_rank_score_{score_type} > 0.0
+        )
+    WHERE r <= 10
+),
+count_each_tag AS (
+    SELECT tag, COUNT(DISTINCT content_id) AS count
+    FROM tag_log
+    GROUP BY tag
+),
+video_ranking_with_tag AS (
+    SELECT
+        video_ranking.ranking,
+        tag_log.tag
+        , video_ranking.content_id
+    FROM video_ranking
+    JOIN tag_log ON video_ranking.content_id = tag_log.content_id
+),
+selected_topn_tag AS (
+    SELECT
+        ranking,
+        tag,
+        content_id
+    FROM (
+            SELECT
+                ranking,
+                tag,
+                content_id
+                , ROW_NUMBER()
+                    OVER (PARTITION BY ranking ORDER BY tag) AS r
+            FROM video_ranking_with_tag
+            JOIN count_each_tag ON video_ranking_with_tag.tag = count_each_tag.tag
+            WHERE count > ${tag_min_videos}
+        )
+    WHERE r <= ${per}
+)
+SELECT
+    ranking,
+    content_nicovideo_video_v2.content_id
+FROM selected_topn_tag
+JOIN niconico.content.content_nicovideo_video_v2 ON selected_topn_tag.content_id = content_nicovideo_video_v2.content_id
+;
+
+```
+
+**感想**
+
+- なぜ watch_event に 2 回 JOIN してる？
