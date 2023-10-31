@@ -1,4 +1,4 @@
-[« Wikipedia で本日のできごと](./01_wikipedia_daily_events.md)
+[« Wikipedia で本日のできごと](./01_wikipedia_daily_events.md) | [寸劇クイズ »](./03_random_skit.md)
 
 仮のキャラ設定は前回と同じ。
 
