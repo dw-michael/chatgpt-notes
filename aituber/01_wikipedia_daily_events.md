@@ -1,3 +1,5 @@
+[フィクション討論会 »](./02_fictional_debate.md)
+
 # 手法
 
 1. Wikipedia ページの内容を API で取得（ローカルで Wikipedia ページをパースできるライブラリがあるので、それを使ってパース）
@@ -534,4 +536,283 @@ profile_reaction = vtuber.VTuberProfile(
 
 文字数（セリフのみ）：1933（1 分 300 文字想定なら約 7 分）
 
+費用が ~$0.50
+
 繋ぎはまだちょっと気になるが、キャラが立ってていい会話ができたと思う。
+
+# 出力例（３話題、２話者、２回目）
+
+```json
+{
+  "vtuber_id": 0,
+  "engine_version": "0.1",
+  "message": "ぴょこぴょこ星からこんにちはー！この地球で今日のできごとを紹介するよ！まず、なんと1218年の今日、仲恭天皇が生まれたんだって！",
+  "expression": "happy",
+  "gesture": "wave hand"
+}
+{
+  "vtuber_id": 1,
+  "engine_version": "0.1",
+  "message": "ワンワン！天皇ってどんな方なんだ～？",
+  "expression": "default",
+  "gesture": "thinking pose"
+}
+{
+  "vtuber_id": 0,
+  "engine_version": "0.1",
+  "message": "それはね、天皇さんっていうのは日本の象徴で、一連の天皇さんたちは神武天皇さんから始まったらしいよ。",
+  "expression": "default",
+  "gesture": "none"
+}
+{
+  "vtuber_id": 1,
+  "engine_version": "0.1",
+  "message": "わんわん！それってすごい先祖さんがいるってこと？",
+  "expression": "surprised",
+  "gesture": "none"
+}
+{
+  "vtuber_id": 0,
+  "engine_version": "0.1",
+  "message": "そうだよ！でも、古代の天皇さんの系図は複雑で、いろいろな説があるんだって。豪族の間で一部大王位が継承されたとする説もあるんだよ。",
+  "expression": "default",
+  "gesture": "none"
+}
+{
+  "vtuber_id": 1,
+  "engine_version": "0.1",
+  "message": "ほえー、それは深いわん。でもたしかに、ずーっと同じ家族が続くのは大変そうだもんな～。",
+  "expression": "default",
+  "gesture": "shake head"
+}
+{
+  "vtuber_id": 0,
+  "engine_version": "0.1",
+  "message": "そうだね。特に、仲恭天皇さんは、まだ17歳で亡くなっちゃったんだって。とても若くて悲しいよね。",
+  "expression": "sad",
+  "gesture": "none"
+}
+{
+  "vtuber_id": 1,
+  "engine_version": "0.1",
+  "message": "うーん、それはかわいそうだわん…。たくさんのことをやりたかったかもしれないのに、早くに旅立っちゃったんだね。",
+  "expression": "sad",
+  "gesture": "none"
+}
+{
+  "vtuber_id": 0,
+  "engine_version": "0.1",
+  "message": "うん、でもきっと、その短い生涯でたくさんのことを学んだんだと思うよ。そしてその経験は、次の世代に受け継がれていったんだって。",
+  "expression": "happy",
+  "gesture": "none"
+}
+{
+  "vtuber_id": 1,
+  "engine_version": "0.1",
+  "message": "そう思うと少しは救われるわんね。今日生まれた仲恭天皇さんのことを思い出してあげよう。",
+  "expression": "happy",
+  "gesture": "none"
+}
+{
+  "vtuber_id": 0,
+  "engine_version": "0.1",
+  "message": "うん！それじゃあ、次の出来事に行くね！",
+  "expression": "happy",
+  "gesture": "wave hand"
+}
+{
+  "vtuber_id": 0,
+  "engine_version": "0.1",
+  "message": "わあ、次に紹介する出来事はすごく深い内容のものだね。",
+  "expression": "default",
+  "gesture": "none"
+}
+{
+  "vtuber_id": 1,
+  "engine_version": "0.1",
+  "message": "え？なになに？なんか難しそう...",
+  "expression": "surprised",
+  "gesture": "wave hand"
+}
+{
+  "vtuber_id": 0,
+  "engine_version": "0.1",
+  "message": "ほんとだよ、ボケ子。なんと、今から紹介するのは、1890年に発布された、教育ニ関スル勅語、通称、教育勅語についてなのです！",
+  "expression": "happy",
+  "gesture": "none"
+}
+{
+  "vtuber_id": 1,
+  "engine_version": "0.1",
+  "message": "ほえ？い、教育つくつくホゲホゲ？それ食べられるの？ピザ味？",
+  "expression": "surprised",
+  "gesture": "shake head"
+}
+{
+  "vtuber_id": 0,
+  "engine_version": "0.1",
+  "message": "ボケ子、それは食べ物じゃないから（笑）。教育勅語っていうのは、明治天皇が発した勅語で、近代日本の教育の基本方針とされたんだよ。",
+  "expression": "default",
+  "gesture": "none"
+}
+{
+  "vtuber_id": 0,
+  "engine_version": "0.1",
+  "message": "そしてこれ、なんと1948年まで！国民道徳の絶対的基準とされていたんだから、すごいんだってば…！",
+  "expression": "surprised",
+  "gesture": "none"
+}
+{
+  "vtuber_id": 1,
+  "engine_version": "0.1",
+  "message": "ほえ～、それ本当にすごいね！でも、なんで停めちゃったの？",
+  "expression": "surprised",
+  "gesture": "none"
+}
+{
+  "vtuber_id": 0,
+  "engine_version": "0.1",
+  "message": "それはね、色々な事件や、時代の変化とかによるものだよ。例えばね、内村鑑三不敬事件という、教育勅語に最敬礼をしなかったら訓令が発せられるっていう事件もあったりして…。",
+  "expression": "sad",
+  "gesture": "none"
+}
+{
+  "vtuber_id": 1,
+  "engine_version": "0.1",
+  "message": "はえー、それは大変だったね。でも、そんな教育勅語も、宇宙から見るとちっぽけなことなんだね。",
+  "expression": "default",
+  "gesture": "none"
+}
+{
+  "vtuber_id": 0,
+  "engine_version": "0.1",
+  "message": "うん、そうだね。でも考え方や社会のルールは、人間社会を構成する重要な要素だから、ちっぽけとは言えないかもしれないよ。",
+  "expression": "happy",
+  "gesture": "none"
+}
+{
+  "vtuber_id": 1,
+  "engine_version": "0.1",
+  "message": "ふ～ん、難しいことはよくわからないけど、レイの話し方が面白いから、ついつい聞いちゃうんだよね～。",
+  "expression": "happy",
+  "gesture": "peace sign"
+}
+{
+  "vtuber_id": 0,
+  "engine_version": "0.1",
+  "message": "ありがとう、ボケ子。それじゃあ、次の出来事も楽しみにしててね！",
+  "expression": "happy",
+  "gesture": "wave hand"
+}
+{
+  "vtuber_id": 0,
+  "engine_version": "0.1",
+  "message": "ぴょこぴょこっと続きを紹介するわよ～、本日の特別な誕生日についてね！",
+  "expression": "happy",
+  "gesture": "wave hand"
+}
+{
+  "vtuber_id": 0,
+  "engine_version": "0.1",
+  "message": "それは、「たまゆら」というアニメに登場するキャラクター、塙かおるちゃんの誕生日なのよ！",
+  "expression": "happy",
+  "gesture": "none"
+}
+{
+  "vtuber_id": 0,
+  "engine_version": "0.1",
+  "message": "彼女は、主人公の沢渡楓ちゃんの幼馴染みで、ずっと見守り続けている優しい子なのよね。",
+  "expression": "happy",
+  "gesture": "none"
+}
+{
+  "vtuber_id": 1,
+  "engine_version": "0.1",
+  "message": "えー、そんなに面倒見のいい子犬ちゃんがいるの！？",
+  "expression": "surprised",
+  "gesture": "none"
+}
+{
+  "vtuber_id": 0,
+  "engine_version": "0.1",
+  "message": "ええ、とっても。そしてちょっと変わってて、「匂いフェチ」って自称してるのよ。",
+  "expression": "happy",
+  "gesture": "none"
+}
+{
+  "vtuber_id": 1,
+  "engine_version": "0.1",
+  "message": "わん？匂いフェチって、なんだいそりゃあ？",
+  "expression": "default",
+  "gesture": "thinking pose"
+}
+{
+  "vtuber_id": 0,
+  "engine_version": "0.1",
+  "message": "それはね、様々な匂いが好きな人のことで、かおるちゃんは、いっぱいポプリを持ってるのよ。",
+  "expression": "happy",
+  "gesture": "none"
+}
+{
+  "vtuber_id": 1,
+  "engine_version": "0.1",
+  "message": "うーん、ちょっと大人っぽい？ でも楽しそうだなあ！",
+  "expression": "happy",
+  "gesture": "none"
+}
+{
+  "vtuber_id": 0,
+  "engine_version": "0.1",
+  "message": "それにね、パティシエになりたいんだって！夢持ってるキャラクターは素敵でしょ？",
+  "expression": "happy",
+  "gesture": "none"
+}
+{
+  "vtuber_id": 1,
+  "engine_version": "0.1",
+  "message": "あっ、それは私も共感！美味しそうなお菓子、私も作りたいなあ！",
+  "expression": "happy",
+  "gesture": "none"
+}
+{
+  "vtuber_id": 0,
+  "engine_version": "0.1",
+  "message": "さらにわたしの好みにもハマるところがあるの。かおるちゃん、明るくて喧しい性格で、かわいいものが大好きなのよ！",
+  "expression": "happy",
+  "gesture": "none"
+}
+{
+  "vtuber_id": 1,
+  "engine_version": "0.1",
+  "message": "わん！それなら、私たちの間にピッタリだね！",
+  "expression": "happy",
+  "gesture": "none"
+}
+{
+  "vtuber_id": 0,
+  "engine_version": "0.1",
+  "message": "そうなのよね、だから今日はかおるちゃんの誕生日を一緒にお祝いするわ！",
+  "expression": "happy",
+  "gesture": "wave hand"
+}
+{
+  "vtuber_id": 1,
+  "engine_version": "0.1",
+  "message": "うんうん！塙かおるちゃん、お誕生日おめでとう！",
+  "expression": "happy",
+  "gesture": "peace sign"
+}
+{
+  "vtuber_id": 0,
+  "engine_version": "0.1",
+  "message": "というわけで、今日の「本日のできごと」コーナーはこれでおしまい！明日も新たなお話を持ってくるから、また覗きにきてね！",
+  "expression": "happy",
+  "gesture": "wave hand"
+}
+```
+
+プロンプトを工夫したら、繋ぎがだいぶ良くなった気がする。
+
+- 文字数： 1547 （1 分 300 文字想定なら約 5 分 30 秒）
+- 費用： $0.36 （約 5 分 30 秒、1 分あたり $0.07）
+- 生成時間： 約 6 分

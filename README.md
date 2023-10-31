@@ -22,3 +22,4 @@ ChatGPT および大型言語モデルの調査をここにまとめます。
 - [Fine-tuning 04](fine_tuning/04_auto_snowflake3.md)
 - [Fine-tuning 05](fine_tuning/05_auto_snowflake4.md)
 - [AITuber 01](aituber/01_wikipedia_daily_events.md)
+- [AITuber 02](aituber/02_fictional_debate.md)
