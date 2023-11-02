@@ -1,4 +1,4 @@
-[« フィクション討論会](./02_fictional_debate.md)
+[« フィクション討論会](./02_fictional_debate.md) | [Wikipedia レース »](./04_wikipedia_race.md)
 
 このタスクに関しては、おそらく出力例の説明を読んだ方がわかりやすい。
 
