@@ -25,3 +25,4 @@ ChatGPT および大型言語モデルの調査をここにまとめます。
 - [AITuber 02](aituber/02_fictional_debate.md)
 - [AITuber 03](aituber/03_random_skit.md)
 - [AITuber 04](aituber/04_wikipedia_race.md)
+- [AITuber 05](aituber/05_telop.md)
