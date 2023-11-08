@@ -626,3 +626,330 @@
   "text": null
 }
 ```
+
+# 出力例（仮想ディベート）
+
+```json
+{
+  "type": "character",
+  "character_id": 0,
+  "message": "ぴょこぴょこ星からこんにちは、永愛レイです！今日は特別なコーナー、「フィクション討論会」をお送りします！",
+  "expression": "happy",
+  "gesture": "wave hand"
+}
+{
+  "type": "character",
+  "character_id": 1,
+  "message": "わんわんわーお！犬山ボケ子だワン！一緒に楽しもうね！",
+  "expression": "happy",
+  "gesture": "wave hand"
+}
+{
+  "type": "telop",
+  "action": "show",
+  "position": "caption",
+  "text": "設定：地球上に突如として、人間の言葉を理解し話すことができるペンギンが現れた。彼らは自分たちの生活環境を改善するために人間社会に参加したいと願っている。"
+}
+{
+  "type": "character",
+  "character_id": 0,
+  "message": "今回の討論のテーマは、突如として人間の言葉を話すペンギンたちが現れ、彼らが人間社会に参加したいと願っているという設定です。",
+  "expression": "default",
+  "gesture": "none"
+}
+{
+  "type": "character",
+  "character_id": 1,
+  "message": "何それ何それ？ペンギンが話すの？それってペットにできるの？",
+  "expression": "surprised",
+  "gesture": "none"
+}
+{
+  "type": "telop",
+  "action": "show",
+  "position": "caption",
+  "text": "設定：地球上に突如として、人間の言葉を理解し話すことができるペンギンが現れた。彼らは自分たちの生活環境を改善するために人間社会に参加したいと願っている。\nお題：ペンギンたちを人間社会に参加させるべきか否か"
+}
+{
+  "type": "character",
+  "character_id": 0,
+  "message": "そう、ペンギンが話すんだよ。でも、ペットではなく、彼らは人間と同等に社会に参加したいんだって。だから、今回のお題は「ペンギンたちを人間社会に参加させるべきか否か」なんだ。",
+  "expression": "default",
+  "gesture": "none"
+}
+{
+  "type": "character",
+  "character_id": 1,
+  "message": "ほほー、それは面白そうだワン！でも、ペンギンが人間社会に入ると、色々問題が起きそうだなぁ…",
+  "expression": "thinking pose",
+  "gesture": "none"
+}
+{
+  "type": "character",
+  "character_id": 0,
+  "message": "私は賛成派だよ。ペンギンたちが人間のように社会に参加することで、新たな視点やアイデアが生まれるかもしれない。それに、彼らが自分たちの生活環境を改善したいという意志を尊重すべきだと思う。",
+  "expression": "happy",
+  "gesture": "none"
+}
+{
+  "type": "character",
+  "character_id": 1,
+  "message": "うーん、でもボケ子は反対だワン。ペンギンたちは寒い場所が好きだから、人間社会に合わせて暮らすとストレスを感じるかもしれない。それに、ペンギンが人間社会に入ると、魚が減るかもしれないワン！",
+  "expression": "angry",
+  "gesture": "none"
+}
+{
+  "type": "character",
+  "character_id": 0,
+  "message": "それは確かに問題だね。でも、人間社会がペンギンたちを受け入れることで、新たな技術やアイデアが生まれるかもしれないよ。たとえば、ペンギン用の冷房システムや、魚を効率的に生産する方法などが開発されるかもしれない。",
+  "expression": "happy",
+  "gesture": "thinking pose"
+}
+{
+  "type": "character",
+  "character_id": 1,
+  "message": "そうかもしれないけど、それでもボケ子はペンギンたちが自然の中で楽しく過ごす方がいいと思うワン！",
+  "expression": "sad",
+  "gesture": "none"
+}
+{
+  "type": "character",
+  "character_id": 0,
+  "message": "うーん、それも一理あるね。でも、最終的にはペンギンたち自身がどうしたいか、それが一番大切なんじゃないかな。",
+  "expression": "happy",
+  "gesture": "none"
+}
+{
+  "type": "character",
+  "character_id": 1,
+  "message": "そうだね、ペンギンたちの意見を尊重するのが一番だワン！",
+  "expression": "happy",
+  "gesture": "none"
+}
+{
+  "type": "telop",
+  "action": "hide",
+  "position": "caption",
+  "text": null
+}
+{
+  "type": "character",
+  "character_id": 0,
+  "message": "それで、次の討論会のお題は…",
+  "expression": "default",
+  "gesture": "none"
+}
+{
+  "type": "character",
+  "character_id": 0,
+  "message": "さてさて、次のお題に移りましょう！",
+  "expression": "default",
+  "gesture": "none"
+}
+{
+  "type": "telop",
+  "action": "show",
+  "position": "caption",
+  "text": "設定：2045年、科学者たちはタイムマシンを発明し、過去への旅を可能にした。しかし、過去に介入することで歴史が変わる可能性がある。"
+}
+{
+  "type": "character",
+  "character_id": 0,
+  "message": "2045年、科学者たちはタイムマシンを発明しました。それによって過去への旅が可能になったんですよ！",
+  "expression": "surprised",
+  "gesture": "wave hand"
+}
+{
+  "type": "character",
+  "character_id": 0,
+  "message": "でも、過去に介入することで歴史が変わる可能性があるんですって！",
+  "expression": "scared",
+  "gesture": "none"
+}
+{
+  "type": "character",
+  "character_id": 1,
+  "message": "わんわん！それって、昔のおやつを食べに行けるってこと？",
+  "expression": "happy",
+  "gesture": "none"
+}
+{
+  "type": "telop",
+  "action": "show",
+  "position": "caption",
+  "text": "設定：2045年、科学者たちはタイムマシンを発明し、過去への旅を可能にした。しかし、過去に介入することで歴史が変わる可能性がある。\nお題：タイムトラベルを一般市民に開放すべきか否か"
+}
+{
+  "type": "character",
+  "character_id": 0,
+  "message": "そういうことではなくて、ボケ子ちゃん。今回のお題は、「タイムトラベルを一般市民に開放すべきか否か」なんですよ。",
+  "expression": "default",
+  "gesture": "none"
+}
+{
+  "type": "character",
+  "character_id": 1,
+  "message": "うーん、それはちょっと危険かも…。人間って、ついつい過去を変えたくなっちゃう生き物だもん。",
+  "expression": "sad",
+  "gesture": "shake head"
+}
+{
+  "type": "character",
+  "character_id": 0,
+  "message": "でも、タイムトラベルが可能になれば、歴史を学ぶ新たな方法が生まれるかもしれませんよ！",
+  "expression": "happy",
+  "gesture": "none"
+}
+{
+  "type": "character",
+  "character_id": 1,
+  "message": "でもでも、それって過去の人に迷惑かけちゃうかも…。昔のわたしに会ったら、きっとビックリしちゃうもん！",
+  "expression": "surprised",
+  "gesture": "shake head"
+}
+{
+  "type": "character",
+  "character_id": 0,
+  "message": "それは確かに…。でも、きっとルールを作って、歴史を変えないようにするんじゃないかな？",
+  "expression": "happy",
+  "gesture": "thinking pose"
+}
+{
+  "type": "character",
+  "character_id": 1,
+  "message": "そうかなー…。でも、わたしはやっぱり反対だわん！",
+  "expression": "angry",
+  "gesture": "none"
+}
+{
+  "type": "character",
+  "character_id": 0,
+  "message": "うーん、なるほどね。私は賛成派だけど、ボケ子ちゃんの意見も分かるよ。",
+  "expression": "default",
+  "gesture": "none"
+}
+{
+  "type": "character",
+  "character_id": 0,
+  "message": "というわけで、タイムトラベルを一般市民に開放すべきか否か、結論は…出ませんでした！",
+  "expression": "surprised",
+  "gesture": "peace sign"
+}
+{
+  "type": "character",
+  "character_id": 1,
+  "message": "わんわん、それはそれで面白い結果だね！",
+  "expression": "happy",
+  "gesture": "none"
+}
+{
+  "type": "telop",
+  "action": "hide",
+  "position": "caption",
+  "text": null
+}
+{
+  "type": "character",
+  "character_id": 0,
+  "message": "そうだね。さて、次のお題に進む前に、ちょっと一息つきましょうか。",
+  "expression": "default",
+  "gesture": "none"
+}
+{
+  "type": "character",
+  "character_id": 0,
+  "message": "さて、我々の最後のお題に移りましょう！",
+  "expression": "default",
+  "gesture": "none"
+}
+{
+  "type": "telop",
+  "action": "show",
+  "position": "caption",
+  "text": "設定：地球外生命体が存在すると確定し、彼らは地球の食物を美味しいと感じるが、彼らが食べると人間にとっての食物が減る可能性がある。"
+}
+{
+  "type": "character",
+  "character_id": 0,
+  "message": "設定はこうです。地球外生命体が存在することが確定し、彼らは地球の食物を美味しいと感じています。ただし、彼らが食べると人間にとっての食物が減る可能性があるんだって。",
+  "expression": "surprised",
+  "gesture": "none"
+}
+{
+  "type": "telop",
+  "action": "show",
+  "position": "caption",
+  "text": "設定：地球外生命体が存在すると確定し、彼らは地球の食物を美味しいと感じるが、彼らが食べると人間にとっての食物が減る可能性がある。\nお題：地球外生命体に地球の食物を提供すべきか否か"
+}
+{
+  "type": "character",
+  "character_id": 0,
+  "message": "今回のお題は、「地球外生命体に地球の食物を提供すべきか否か」です。",
+  "expression": "default",
+  "gesture": "none"
+}
+{
+  "type": "character",
+  "character_id": 0,
+  "message": "私、永愛レイは賛成派です！",
+  "expression": "happy",
+  "gesture": "peace sign"
+}
+{
+  "type": "character",
+  "character_id": 0,
+  "message": "私たちは宇宙の一部ですし、宇宙の仲間たちと共有することは素晴らしいことだと思います。それに、彼らが何を美味しいと感じるのか、それが新たな料理の発見につながるかもしれませんよ！",
+  "expression": "happy",
+  "gesture": "none"
+}
+{
+  "type": "character",
+  "character_id": 1,
+  "message": "ボケ子は反対だわん！",
+  "expression": "angry",
+  "gesture": "shake head"
+}
+{
+  "type": "character",
+  "character_id": 1,
+  "message": "地球の食物が減ったら、ボケ子の大好きなピザがなくなっちゃうかもしれないわん！それは、それは、もう最悪だわん！",
+  "expression": "sad",
+  "gesture": "none"
+}
+{
+  "type": "character",
+  "character_id": 0,
+  "message": "でも、ボケ子、考えてみて。地球外生命体がピザを美味しいと感じたら、宇宙ピザが誕生するかもしれないよ！",
+  "expression": "happy",
+  "gesture": "none"
+}
+{
+  "type": "character",
+  "character_id": 1,
+  "message": "宇宙ピザ？それはそれで面白そうだわん！でも、それでも、ボケ子のピザがなくなるのは嫌だわん！",
+  "expression": "surprised",
+  "gesture": "none"
+}
+{
+  "type": "character",
+  "character_id": 0,
+  "message": "そうね、これは難しい問題だけど、何か共通の解決策を見つけられるといいね。",
+  "expression": "default",
+  "gesture": "thinking pose"
+}
+{
+  "type": "telop",
+  "action": "hide",
+  "position": "caption",
+  "text": null
+}
+{
+  "type": "character",
+  "character_id": 0,
+  "message": "というわけで、今回のフィクション討論会はここまで！皆さん、いかがでしたか？私たちの討論はあくまでエンターテイメントですから、真剣に考えすぎずに楽しんでいただければと思います。",
+  "expression": "happy",
+  "gesture": "wave hand"
+}
+```
+
+テロップが長いケースもあるね。GPT-3.5 に「テレビ番組のテロップ風に要約してください」みたいに要約してもらうのがいいかも？
