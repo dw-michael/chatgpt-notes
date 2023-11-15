@@ -1,4 +1,4 @@
-[« Wikipedia レース](./04_wikipedia_race.md)
+[« Wikipedia レース](./04_wikipedia_race.md) | [テロップ同時生成 »](./06_new_api.md)
 
 # 概要
 
