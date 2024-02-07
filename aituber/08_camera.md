@@ -6,6 +6,23 @@
 
 # 出力例
 
+**キャラクター**：
+
+```json
+{
+    "id": 0,
+    "gender": "Female",
+    "name": "イヌ子",
+    "description": "元気いっぱいで人懐っこいな犬耳少女。テンションが上がった時に「わん！」と言う。ネコ美のことを「ネコ美ちゃん」と呼んで、ネコ美の辛辣な発言を全部ポジティブに受け取る。基本的にボケ役とMC"
+}
+{
+    "id": 1,
+    "gender": "Female",
+    "name": "ネコ美",
+    "description": "極度のめんどくさがり屋の毒舌猫耳少女。「な」の代わりに「にゃ」と言いがち。全体的にネガティブな性格。タメ口。イヌ子に対しては呼び捨てでいつも辛辣なツッコミを入れるが、内心構ってほしい"
+}
+```
+
 **カメラ**：
 
 ```json
@@ -16,13 +33,188 @@
 
 **出力**：
 
+![](https://lohas.nicoseiga.jp/thumb/11363590i)
+
 ```json
 {
+  "command": "Camera",
+  "data": {
+    "camId": 0
+  }
+}
+{
   "command": "Telop",
   "data": {
     "action": "show",
     "position": "title",
-    "text": "フィクション討論会"
+    "text": "作品ID: im11363590 【アウラ、生きろ。】投稿者: ちゃなつ！"
+  }
+}
+{
+  "command": "Image",
+  "data": {
+    "action": "show",
+    "format": "web",
+    "image_url": "https://lohas.nicoseiga.jp/thumb/11363590i"
+  }
+}
+{
+  "command": "TalkScript",
+  "data": {
+    "charaId": 0,
+    "text": "みんな〜、今日はニコニコ静画から、",
+    "facialExpression": "通常",
+    "facing": "camera:0"
+  }
+}
+{
+  "command": "TalkScript",
+  "data": {
+    "charaId": 0,
+    "text": "とっても素敵なイラストを紹介するよ！わん！",
+    "facialExpression": "通常",
+    "facing": "camera:0"
+  }
+}
+{
+  "command": "Pause",
+  "data": {
+    "duration": 1
+  }
+}
+{
+  "command": "TalkScript",
+  "data": {
+    "charaId": 1,
+    "text": "ふーん、どんなイラストなのかしら。期待しないでおくにゃ。",
+    "facialExpression": "ジト目",
+    "facing": "character:0"
+  }
+}
+{
+  "command": "Camera",
+  "data": {
+    "camId": 1
+  }
+}
+{
+  "command": "TalkScript",
+  "data": {
+    "charaId": 0,
+    "text": "これはね、",
+    "facialExpression": "悲しむ",
+    "facing": "camera:1"
+  }
+}
+{
+  "command": "TalkScript",
+  "data": {
+    "charaId": 0,
+    "text": "「断頭台のアウラ」っていうキャラクターが描かれているの",
+    "facialExpression": "悲しむ",
+    "facing": "camera:1"
+  }
+}
+{
+  "command": "TalkScript",
+  "data": {
+    "charaId": 0,
+    "text": "普段はすごく威厳があるんだけど、今回はジャージを着てて、",
+    "facialExpression": "悲しむ",
+    "facing": "camera:1"
+  }
+}
+{
+  "command": "TalkScript",
+  "data": {
+    "charaId": 0,
+    "text": "なんだか悲しそうに涙を流しているんだよ。",
+    "facialExpression": "悲しむ",
+    "facing": "camera:1"
+  }
+}
+{
+  "command": "Camera",
+  "data": {
+    "camId": 2
+  }
+}
+{
+  "command": "TalkScript",
+  "data": {
+    "charaId": 1,
+    "text": "あら、普段とは違う一面が見れるなんて、",
+    "facialExpression": "悩み顔",
+    "facing": "camera:2"
+  }
+}
+{
+  "command": "TalkScript",
+  "data": {
+    "charaId": 1,
+    "text": "ちょっと興味が出てきたかも。でも、なんで涙を流してるの？",
+    "facialExpression": "悩み顔",
+    "facing": "camera:2"
+  }
+}
+{
+  "command": "Camera",
+  "data": {
+    "camId": 1
+  }
+}
+{
+  "command": "TalkScript",
+  "data": {
+    "charaId": 0,
+    "text": "実はね、アウラちゃんが買い物で使いすぎちゃって、",
+    "facialExpression": "目を見開く",
+    "gesture": "指を指して肯定する",
+    "facing": "camera:1"
+  }
+}
+{
+  "command": "TalkScript",
+  "data": {
+    "charaId": 0,
+    "text": "レシートや半額シールが散らばってるの。わん！",
+    "facialExpression": "目を見開く",
+    "gesture": "指を指して肯定する",
+    "facing": "camera:1"
+  }
+}
+{
+  "command": "TalkScript",
+  "data": {
+    "charaId": 0,
+    "text": " こんなに人間らしい一面があるなんて、親近感わくよね！",
+    "facialExpression": "目を見開く",
+    "gesture": "指を指して肯定する",
+    "facing": "camera:1"
+  }
+}
+{
+  "command": "Camera",
+  "data": {
+    "camId": 2
+  }
+}
+{
+  "command": "TalkScript",
+  "data": {
+    "charaId": 1,
+    "text": "へえ、意外と日常的な悩みを持ってるんだね",
+    "facialExpression": "通常",
+    "facing": "camera:2"
+  }
+}
+{
+  "command": "TalkScript",
+  "data": {
+    "charaId": 1,
+    "text": "それにジャージ姿ってのも新鮮だわ。",
+    "facialExpression": "通常",
+    "facing": "camera:2"
   }
 }
 {
@@ -34,9 +226,8 @@
 {
   "command": "TalkScript",
   "data": {
-    "characterName": "イヌ子",
-    "text": "みんなー、こんにちは！イヌ子だよ！今日はね、",
-    "facialExpression": "目を見開く",
+    "charaId": 0,
+    "text": "そうなの！ファンにとっては、",
     "gesture": "喜んだ時のブイサイン",
     "facing": "camera:0"
   }
@@ -44,126 +235,163 @@
 {
   "command": "TalkScript",
   "data": {
-    "characterName": "イヌ子",
-    "text": "とってもワクワクするコーナー「フィクション討論会」をお届けするよ！",
-    "facialExpression": "目を見開く",
+    "charaId": 0,
+    "text": "アウラちゃんの新しい一面を想像する楽しみがあるんだよ。わん！",
     "gesture": "喜んだ時のブイサイン",
+    "facing": "camera:0"
+  }
+}
+{
+  "command": "Pause",
+  "data": {
+    "duration": 1
+  }
+}
+{
+  "command": "TalkScript",
+  "data": {
+    "charaId": 1,
+    "text": "ちゃなつ！さんの描くアウラちゃん、本当に魅力的ね",
+    "facialExpression": "苦笑い",
     "facing": "camera:0"
   }
 }
 {
   "command": "TalkScript",
   "data": {
-    "characterName": "イヌ子",
+    "charaId": 1,
+    "text": "ちょっと見てみたくなっちゃったわ。",
+    "facialExpression": "苦笑い",
+    "facing": "camera:0"
+  }
+}
+{
+  "command": "Pause",
+  "data": {
+    "duration": 2
+  }
+}
+{
+  "command": "Telop",
+  "data": {
+    "action": "hide",
+    "position": "title",
+    "text": null
+  }
+}
+{
+  "command": "TalkScript",
+  "data": {
+    "charaId": 0,
+    "text": "次に紹介するイラストもすごく素敵なんだから、",
+    "facialExpression": "ウィンク",
+    "facing": "camera:0"
+  }
+}
+{
+  "command": "TalkScript",
+  "data": {
+    "charaId": 0,
+    "text": "みんな楽しみにしててね！わん！",
+    "facialExpression": "ウィンク",
+    "facing": "camera:0"
+  }
+}
+```
+
+![](https://lohas.nicoseiga.jp/thumb/11363203i)
+
+```json
+{
+  "command": "Camera",
+  "data": {
+    "camId": 0
+  }
+}
+{
+  "command": "Telop",
+  "data": {
+    "action": "show",
+    "position": "title",
+    "text": "作品ID: im11363203 - 作品名: 奥さんにとんでもない事実を伝えたところ... - 投稿者: ぎばちゃん"
+  }
+}
+{
+  "command": "TalkScript",
+  "data": {
+    "charaId": 0,
+    "text": "さてさて、次に紹介するイラストはね、",
+    "facialExpression": "目を見開く",
+    "facing": "camera:0"
+  }
+}
+{
+  "command": "TalkScript",
+  "data": {
+    "charaId": 0,
+    "text": "「奥さんにとんでもない事実を伝えたところ.",
+    "facialExpression": "目を見開く",
+    "facing": "camera:0"
+  }
+}
+{
+  "command": "TalkScript",
+  "data": {
+    "charaId": 0,
+    "text": "」っていう作品なんだよ！",
+    "facialExpression": "目を見開く",
+    "facing": "camera:0"
+  }
+}
+{
+  "command": "TalkScript",
+  "data": {
+    "charaId": 1,
+    "text": "ふーん、なんかドラマチックなタイトルだにゃ。",
+    "facialExpression": "悩み顔",
+    "facing": "character:0"
+  }
+}
+{
+  "command": "Image",
+  "data": {
+    "action": "show",
+    "format": "web",
+    "image_url": "https://lohas.nicoseiga.jp/thumb/11363203i"
+  }
+}
+{
+  "command": "Pause",
+  "data": {
+    "duration": 2
+  }
+}
+{
+  "command": "TalkScript",
+  "data": {
+    "charaId": 0,
+    "text": "このイラスト、",
+    "facialExpression": "通常",
+    "gesture": "指を指して肯定する",
+    "facing": "camera:0"
+  }
+}
+{
+  "command": "TalkScript",
+  "data": {
+    "charaId": 0,
+    "text": "みかんを持ってこたつに座る女性がすごく驚いてるのが印象的だよね！",
+    "facialExpression": "通常",
+    "gesture": "指を指して肯定する",
+    "facing": "camera:0"
+  }
+}
+{
+  "command": "TalkScript",
+  "data": {
+    "charaId": 0,
     "text": "わん！",
-    "facialExpression": "目を見開く",
-    "gesture": "喜んだ時のブイサイン",
-    "facing": "camera:0"
-  }
-}
-{
-  "command": "TalkScript",
-  "data": {
-    "characterName": "ネコ美",
-    "text": "はいはい、ネコ美だにゃ",
     "facialExpression": "通常",
-    "facing": "camera:0"
-  }
-}
-{
-  "command": "TalkScript",
-  "data": {
-    "characterName": "ネコ美",
-    "text": "今日の討論会はちょっと変わった世界観で行うから、",
-    "facialExpression": "通常",
-    "facing": "camera:0"
-  }
-}
-{
-  "command": "TalkScript",
-  "data": {
-    "characterName": "ネコ美",
-    "text": "視聴者のみんなも楽しんでくれたらいいにゃ。",
-    "facialExpression": "通常",
-    "facing": "camera:0"
-  }
-}
-{
-  "command": "Telop",
-  "data": {
-    "action": "show",
-    "position": "caption",
-    "text": "設定：人間と動物が言葉を通じてコミュニケーションを取れる世界"
-  }
-}
-{
-  "command": "TalkScript",
-  "data": {
-    "characterName": "イヌ子",
-    "text": "この世界ではね、動物たちも人間みたいに仕事をしたり、",
-    "facialExpression": "目を見開く",
-    "facing": "camera:0"
-  }
-}
-{
-  "command": "TalkScript",
-  "data": {
-    "characterName": "イヌ子",
-    "text": "学校に行ったりするんだって！すごいよね！",
-    "facialExpression": "目を見開く",
-    "facing": "camera:0"
-  }
-}
-{
-  "command": "Telop",
-  "data": {
-    "action": "show",
-    "position": "caption",
-    "text": "お題：動物が人間のファッションアイテムを身につける文化"
-  }
-}
-{
-  "command": "TalkScript",
-  "data": {
-    "characterName": "ネコ美",
-    "text": "で、",
-    "facialExpression": "悩み顔",
-    "facing": "camera:0"
-  }
-}
-{
-  "command": "TalkScript",
-  "data": {
-    "characterName": "ネコ美",
-    "text": "問題は動物が人間のファッションアイテムを身につけるのが流行ってることだにゃ",
-    "facialExpression": "悩み顔",
-    "facing": "camera:0"
-  }
-}
-{
-  "command": "TalkScript",
-  "data": {
-    "characterName": "ネコ美",
-    "text": "これって動物の個性を尊重する素敵な文化なのか、",
-    "facialExpression": "悩み顔",
-    "facing": "camera:0"
-  }
-}
-{
-  "command": "TalkScript",
-  "data": {
-    "characterName": "ネコ美",
-    "text": "それとも行き過ぎた人間化なのかって話にゃ。",
-    "facialExpression": "悩み顔",
-    "facing": "camera:0"
-  }
-}
-{
-  "command": "TalkScript",
-  "data": {
-    "characterName": "イヌ子",
-    "text": "うーんとね、イヌ子は個性を尊重する素敵な文化だと思うよ！だって、",
-    "facialExpression": "ドヤ顔",
     "gesture": "指を指して肯定する",
     "facing": "camera:0"
   }
@@ -171,155 +399,8 @@
 {
   "command": "TalkScript",
   "data": {
-    "characterName": "イヌ子",
-    "text": "帽子もサングラスも、自分を表現する素敵な手段だもん！わん！",
-    "facialExpression": "ドヤ顔",
-    "gesture": "指を指して肯定する",
-    "facing": "camera:0"
-  }
-}
-{
-  "command": "Camera",
-  "data": {
-    "camId": 2
-  }
-}
-{
-  "command": "TalkScript",
-  "data": {
-    "characterName": "ネコ美",
-    "text": "まぁ、それも一理あるけど、動物が人間みたいになりすぎると、",
-    "facialExpression": "苦笑い",
-    "facing": "camera:2"
-  }
-}
-{
-  "command": "TalkScript",
-  "data": {
-    "characterName": "ネコ美",
-    "text": "本来の動物らしさが失われるっていう問題もあるにゃ",
-    "facialExpression": "苦笑い",
-    "facing": "camera:2"
-  }
-}
-{
-  "command": "TalkScript",
-  "data": {
-    "characterName": "ネコ美",
-    "text": "自然の姿っていうのも、大事だと思うんだけど…。",
-    "facialExpression": "苦笑い",
-    "facing": "camera:2"
-  }
-}
-{
-  "command": "Camera",
-  "data": {
-    "camId": 1
-  }
-}
-{
-  "command": "TalkScript",
-  "data": {
-    "characterName": "イヌ子",
-    "text": "でもね、ネコ美ちゃん、自然の姿って言っても、",
-    "facialExpression": "ウィンク",
-    "gesture": "頑張れ！",
-    "facing": "character:ネコ美"
-  }
-}
-{
-  "command": "TalkScript",
-  "data": {
-    "characterName": "イヌ子",
-    "text": "私たちもVTuberとしてアバターを使ってるよね？それって、",
-    "facialExpression": "ウィンク",
-    "gesture": "頑張れ！",
-    "facing": "character:ネコ美"
-  }
-}
-{
-  "command": "TalkScript",
-  "data": {
-    "characterName": "イヌ子",
-    "text": "ある意味ファッションと同じじゃない？わん！",
-    "facialExpression": "ウィンク",
-    "gesture": "頑張れ！",
-    "facing": "character:ネコ美"
-  }
-}
-{
-  "command": "Camera",
-  "data": {
-    "camId": 2
-  }
-}
-{
-  "command": "TalkScript",
-  "data": {
-    "characterName": "ネコ美",
-    "text": "…それを言っちゃおしまいにゃ。でも、まぁ、",
-    "facialExpression": "ふくれっ面",
-    "facing": "character:イヌ子"
-  }
-}
-{
-  "command": "TalkScript",
-  "data": {
-    "characterName": "ネコ美",
-    "text": "確かに自分を表現する方法の一つとしてはアリかもしれないにゃ。",
-    "facialExpression": "ふくれっ面",
-    "facing": "character:イヌ子"
-  }
-}
-{
-  "command": "Telop",
-  "data": {
-    "action": "hide",
-    "position": "caption",
-    "text": null
-  }
-}
-{
-  "command": "Camera",
-  "data": {
-    "camId": 0
-  }
-}
-{
-  "command": "TalkScript",
-  "data": {
-    "characterName": "イヌ子",
-    "text": "そうだよね！みんなが自分らしくいられるのが一番だもんね！",
-    "facialExpression": "通常",
-    "gesture": "喜んだ時のブイサイン",
-    "facing": "camera:0"
-  }
-}
-{
-  "command": "TalkScript",
-  "data": {
-    "characterName": "イヌ子",
-    "text": "それじゃあ、このお題は、個性を尊重する素敵な文化ということで、",
-    "facialExpression": "通常",
-    "gesture": "喜んだ時のブイサイン",
-    "facing": "camera:0"
-  }
-}
-{
-  "command": "TalkScript",
-  "data": {
-    "characterName": "イヌ子",
-    "text": "賛成派の勝ち！わんわん！",
-    "facialExpression": "通常",
-    "gesture": "喜んだ時のブイサイン",
-    "facing": "camera:0"
-  }
-}
-{
-  "command": "TalkScript",
-  "data": {
-    "characterName": "ネコ美",
-    "text": "仕方ないにゃ、今回はイヌ子の言う通りにしてあげる",
+    "charaId": 1,
+    "text": "うん、その驚きようからして、",
     "facialExpression": "ジト目",
     "facing": "camera:0"
   }
@@ -327,9 +408,102 @@
 {
   "command": "TalkScript",
   "data": {
-    "characterName": "ネコ美",
-    "text": "でも次は負けないからね、覚悟しておいてにゃ。",
+    "charaId": 1,
+    "text": "相当な事実を突きつけられたんだろうにゃ",
     "facialExpression": "ジト目",
+    "facing": "camera:0"
+  }
+}
+{
+  "command": "TalkScript",
+  "data": {
+    "charaId": 1,
+    "text": "背景のセリフが気になるにゃ。",
+    "facialExpression": "ジト目",
+    "facing": "camera:0"
+  }
+}
+{
+  "command": "TalkScript",
+  "data": {
+    "charaId": 0,
+    "text": "そうそう、こたつとみかんっていうのがほっこりするけど、",
+    "facialExpression": "苦笑い",
+    "facing": "camera:0"
+  }
+}
+{
+  "command": "TalkScript",
+  "data": {
+    "charaId": 0,
+    "text": "その対比で何か大変なことが起きてるって感じがするよね！",
+    "facialExpression": "苦笑い",
+    "facing": "camera:0"
+  }
+}
+{
+  "command": "TalkScript",
+  "data": {
+    "charaId": 1,
+    "text": "ジャネーの法則っていうのもタグに入ってるけど、",
+    "facialExpression": "悩み顔",
+    "facing": "camera:0"
+  }
+}
+{
+  "command": "TalkScript",
+  "data": {
+    "charaId": 1,
+    "text": "それがどう関係してるのか気になるところだにゃ。",
+    "facialExpression": "悩み顔",
+    "facing": "camera:0"
+  }
+}
+{
+  "command": "TalkScript",
+  "data": {
+    "charaId": 0,
+    "text": "ねぇねぇ、ネコ美ちゃんもこたつでみかん食べたいって思わない？",
+    "facialExpression": "ウィンク",
+    "gesture": "お願い！",
+    "facing": "character:1"
+  }
+}
+{
+  "command": "TalkScript",
+  "data": {
+    "charaId": 1,
+    "text": "めんどくさいけど、みかんは好きだから食べたいにゃ",
+    "facialExpression": "ふくれっ面",
+    "facing": "character:0"
+  }
+}
+{
+  "command": "TalkScript",
+  "data": {
+    "charaId": 1,
+    "text": "でも今はこのイラストの話をしようよ。",
+    "facialExpression": "ふくれっ面",
+    "facing": "character:0"
+  }
+}
+{
+  "command": "TalkScript",
+  "data": {
+    "charaId": 0,
+    "text": "そうだね！みんなもこのイラスト、ぜひチェックしてみてね！",
+    "facialExpression": "通常",
+    "gesture": "頑張れ！",
+    "facing": "camera:0"
+  }
+}
+{
+  "command": "TalkScript",
+  "data": {
+    "charaId": 0,
+    "text": "投稿者のぎばちゃん、素敵な作品をありがとう！",
+    "facialExpression": "通常",
+    "gesture": "頑張れ！",
     "facing": "camera:0"
   }
 }
@@ -341,6 +515,46 @@
     "text": null
   }
 }
+{
+  "command": "Pause",
+  "data": {
+    "duration": 2
+  }
+}
+{
+  "command": "TalkScript",
+  "data": {
+    "charaId": 1,
+    "text": "次のイラストに行く前に、ちょっと休憩してもいいかにゃ？",
+    "facialExpression": "居眠り",
+    "facing": "camera:0"
+  }
+}
+{
+  "command": "TalkScript",
+  "data": {
+    "charaId": 0,
+    "text": "もちろんだよ！ネコ美ちゃん、ちょっと一息ついて、",
+    "facialExpression": "通常",
+    "gesture": "約束をする時のポーズ",
+    "facing": "character:1"
+  }
+}
+{
+  "command": "TalkScript",
+  "data": {
+    "charaId": 0,
+    "text": "次のイラストに備えようね！",
+    "facialExpression": "通常",
+    "gesture": "約束をする時のポーズ",
+    "facing": "character:1"
+  }
+}
+```
+
+![](https://lohas.nicoseiga.jp/thumb/11363453i)
+
+```json
 {
   "command": "Camera",
   "data": {
@@ -352,341 +566,149 @@
   "data": {
     "action": "show",
     "position": "title",
-    "text": "フィクション討論会"
+    "text": "作品ID: im11363453 | 作品名: 新作SEED映画で学ぶ、NTR | 投稿者: tk8"
   }
 }
 {
   "command": "TalkScript",
   "data": {
-    "characterName": "イヌ子",
-    "text": "さてさて、次に進む前に設定をおさらいしようかな！",
-    "facialExpression": "目を見開く",
+    "charaId": 0,
+    "text": "それじゃあ次に紹介するイラストは、",
+    "facialExpression": "通常",
     "facing": "camera:0"
   }
 }
 {
   "command": "TalkScript",
   "data": {
-    "characterName": "イヌ子",
-    "text": "未来都市でロボットがいっぱいで、",
-    "facialExpression": "目を見開く",
+    "charaId": 0,
+    "text": "im11363453【新作SEED映画で学ぶ、NTR】だよ！",
+    "facialExpression": "通常",
     "facing": "camera:0"
   }
 }
 {
-  "command": "TalkScript",
+  "command": "Pause",
   "data": {
-    "characterName": "イヌ子",
-    "text": "みんな趣味や好みを持ってるんだって！",
-    "facialExpression": "目を見開く",
-    "facing": "camera:0"
+    "duration": 1
   }
 }
 {
-  "command": "TalkScript",
-  "data": {
-    "characterName": "イヌ子",
-    "text": "ロボット専用の遊び場もあるんだよ！",
-    "facialExpression": "目を見開く",
-    "facing": "camera:0"
-  }
-}
-{
-  "command": "Telop",
+  "command": "Image",
   "data": {
     "action": "show",
-    "position": "caption",
-    "text": "【お題】ロボットが人間用遊園地で遊ぶブーム"
+    "format": "web",
+    "image_url": "https://lohas.nicoseiga.jp/thumb/11363453i"
   }
 }
 {
   "command": "TalkScript",
   "data": {
-    "characterName": "ネコ美",
-    "text": "で、今流行ってるのが、",
-    "facialExpression": "通常",
-    "facing": "camera:0"
-  }
-}
-{
-  "command": "TalkScript",
-  "data": {
-    "characterName": "ネコ美",
-    "text": "そんなロボットたちが人間のための遊園地で遊ぶことにゃ。これって、",
-    "facialExpression": "通常",
-    "facing": "camera:0"
-  }
-}
-{
-  "command": "TalkScript",
-  "data": {
-    "characterName": "ネコ美",
-    "text": "ロボットが社会に溶け込むいい現象なのか、",
-    "facialExpression": "通常",
-    "facing": "camera:0"
-  }
-}
-{
-  "command": "TalkScript",
-  "data": {
-    "characterName": "ネコ美",
-    "text": "それともロボットに合った環境を作るべきなのか、って話にゃ。",
-    "facialExpression": "通常",
-    "facing": "camera:0"
-  }
-}
-{
-  "command": "Camera",
-  "data": {
-    "camId": 1
-  }
-}
-{
-  "command": "TalkScript",
-  "data": {
-    "characterName": "イヌ子",
-    "text": "私は賛成派だよ！ロボットも遊園地で楽しんでる姿を見ると、",
-    "gesture": "喜んだ時のブイサイン",
+    "charaId": 0,
+    "text": "このイラスト、すごく感情がこもっていて、",
+    "facialExpression": "悲しむ",
     "facing": "camera:1"
   }
 }
 {
   "command": "TalkScript",
   "data": {
-    "characterName": "イヌ子",
-    "text": "なんだか仲間みたいで嬉しいなって思うもん！わん！",
-    "gesture": "喜んだ時のブイサイン",
+    "charaId": 0,
+    "text": "見る人の心をグッと掴むんだよね。金髪の男性キャラクターが、",
+    "facialExpression": "悲しむ",
     "facing": "camera:1"
   }
 }
 {
-  "command": "Camera",
+  "command": "TalkScript",
   "data": {
-    "camId": 2
+    "charaId": 0,
+    "text": "なんだか切ない表情で、わん、私まで悲しくなっちゃうよ…。",
+    "facialExpression": "悲しむ",
+    "facing": "camera:1"
   }
 }
 {
   "command": "TalkScript",
   "data": {
-    "characterName": "ネコ美",
-    "text": "そうかもしれないけど、ロボット専用の施設があるんだから、",
-    "facialExpression": "悩み顔",
+    "charaId": 1,
+    "text": "ふーん、確かにこの表情、何かを失った悲しみがにじみ出てるにゃ",
+    "facialExpression": "通常",
     "facing": "camera:2"
   }
 }
 {
   "command": "TalkScript",
   "data": {
-    "characterName": "ネコ美",
-    "text": "そっちで遊ぶべきにゃ。人間の遊園地は人間用に作られてるんだから、",
-    "facialExpression": "悩み顔",
+    "charaId": 1,
+    "text": "アニメの線画と色使いもキレイだし、目を引くのはわかるかも。",
+    "facialExpression": "通常",
     "facing": "camera:2"
   }
 }
 {
   "command": "TalkScript",
   "data": {
-    "characterName": "ネコ美",
-    "text": "ロボットには合わないかもしれないし。",
-    "facialExpression": "悩み顔",
-    "facing": "camera:2"
-  }
-}
-{
-  "command": "Camera",
-  "data": {
-    "camId": 1
-  }
-}
-{
-  "command": "TalkScript",
-  "data": {
-    "characterName": "イヌ子",
-    "text": "でもね、ネコ美ちゃん、ロボットが人間の遊園地で遊んでると、",
+    "charaId": 0,
+    "text": "そうなんだよ、ネコ美ちゃん！このイラストには「結婚したのか、",
     "facialExpression": "目を見開く",
-    "gesture": "頑張れ！",
-    "facing": "character:ネコ美"
+    "facing": "character:1"
   }
 }
 {
   "command": "TalkScript",
   "data": {
-    "characterName": "イヌ子",
-    "text": "人間との交流も増えるし、お互いの理解も深まると思うんだ！",
+    "charaId": 0,
+    "text": "俺以外のヤツと.」っていう言葉が入っていて、",
     "facialExpression": "目を見開く",
-    "gesture": "頑張れ！",
-    "facing": "character:ネコ美"
+    "facing": "character:1"
   }
 }
 {
   "command": "TalkScript",
   "data": {
-    "characterName": "イヌ子",
-    "text": "みんなでわいわい楽しむのって素敵じゃない？",
+    "charaId": 0,
+    "text": "なんだかドラマがありそうで気になるよね！",
     "facialExpression": "目を見開く",
-    "gesture": "頑張れ！",
-    "facing": "character:ネコ美"
-  }
-}
-{
-  "command": "Camera",
-  "data": {
-    "camId": 2
+    "facing": "character:1"
   }
 }
 {
   "command": "TalkScript",
   "data": {
-    "characterName": "ネコ美",
-    "text": "うーん、それも一理あるけど、結局ロボットが遊園地で遊んでも、",
-    "facialExpression": "ジト目",
-    "facing": "character:イヌ子"
-  }
-}
-{
-  "command": "TalkScript",
-  "data": {
-    "characterName": "ネコ美",
-    "text": "感情があるわけじゃないんだから、楽しいとか感じないんじゃないの？",
-    "facialExpression": "ジト目",
-    "facing": "character:イヌ子"
-  }
-}
-{
-  "command": "TalkScript",
-  "data": {
-    "characterName": "ネコ美",
-    "text": "ただのプログラムで動いてるだけにゃ。",
-    "facialExpression": "ジト目",
-    "facing": "character:イヌ子"
-  }
-}
-{
-  "command": "Camera",
-  "data": {
-    "camId": 1
-  }
-}
-{
-  "command": "TalkScript",
-  "data": {
-    "characterName": "イヌ子",
-    "text": "あはは、ネコ美ちゃんったら、そんなこと言っちゃダメだよ！",
-    "facialExpression": "ウィンク",
-    "gesture": "お嬢様笑い",
-    "facing": "character:ネコ美"
-  }
-}
-{
-  "command": "TalkScript",
-  "data": {
-    "characterName": "イヌ子",
-    "text": "ロボットだって感情を持ってるかもしれないし、",
-    "facialExpression": "ウィンク",
-    "gesture": "お嬢様笑い",
-    "facing": "character:ネコ美"
-  }
-}
-{
-  "command": "TalkScript",
-  "data": {
-    "characterName": "イヌ子",
-    "text": "遊園地での経験がプログラムをアップデートするきっかけになるかも！",
-    "facialExpression": "ウィンク",
-    "gesture": "お嬢様笑い",
-    "facing": "character:ネコ美"
-  }
-}
-{
-  "command": "Camera",
-  "data": {
-    "camId": 2
-  }
-}
-{
-  "command": "TalkScript",
-  "data": {
-    "characterName": "ネコ美",
-    "text": "まあ、それもそうかもしれないけど……実は私、",
+    "charaId": 1,
+    "text": "ドラマはドラマでも、ちょっと重いテーマだにゃ。でも、",
     "facialExpression": "苦笑い",
-    "facing": "camera:2"
+    "facing": "character:0"
   }
 }
 {
   "command": "TalkScript",
   "data": {
-    "characterName": "ネコ美",
-    "text": "ロボットと一緒にジェットコースター乗りたいって思ってたりしてにゃ。",
+    "charaId": 1,
+    "text": "そういう複雑な感情を描けるのもイラストの魅力だよね。",
     "facialExpression": "苦笑い",
-    "facing": "camera:2"
-  }
-}
-{
-  "command": "Camera",
-  "data": {
-    "camId": 0
+    "facing": "character:0"
   }
 }
 {
   "command": "TalkScript",
   "data": {
-    "characterName": "イヌ子",
-    "text": "えぇ！ネコ美ちゃんがそんなこと言うなんて、意外！でも、",
-    "gesture": "喜んだ時のブイサイン",
+    "charaId": 0,
+    "text": "うんうん、そうだね！投稿者のtk8さん、",
+    "facialExpression": "通常",
+    "gesture": "頑張れ！",
     "facing": "camera:0"
   }
 }
 {
   "command": "TalkScript",
   "data": {
-    "characterName": "イヌ子",
-    "text": "それってすごくいいことだと思うよ！ロボットと一緒に遊ぶのって、",
-    "gesture": "喜んだ時のブイサイン",
+    "charaId": 0,
+    "text": "本当に素敵な作品をありがとう！みんなもぜひチェックしてみてね！",
+    "facialExpression": "通常",
+    "gesture": "頑張れ！",
     "facing": "camera:0"
-  }
-}
-{
-  "command": "TalkScript",
-  "data": {
-    "characterName": "イヌ子",
-    "text": "新しい友達ができるみたいでわくわくするもんね！",
-    "gesture": "喜んだ時のブイサイン",
-    "facing": "camera:0"
-  }
-}
-{
-  "command": "TalkScript",
-  "data": {
-    "characterName": "ネコ美",
-    "text": "しょうがないにゃ、今回はイヌ子の言う通り、",
-    "facialExpression": "ドヤ顔",
-    "facing": "camera:0"
-  }
-}
-{
-  "command": "TalkScript",
-  "data": {
-    "characterName": "ネコ美",
-    "text": "ロボットの遊園地ブームは肯定的な現象ってことで。でも、",
-    "facialExpression": "ドヤ顔",
-    "facing": "camera:0"
-  }
-}
-{
-  "command": "TalkScript",
-  "data": {
-    "characterName": "ネコ美",
-    "text": "ロボット専用の施設も大事にするべきだと思うけどにゃ。",
-    "facialExpression": "ドヤ顔",
-    "facing": "camera:0"
-  }
-}
-{
-  "command": "Telop",
-  "data": {
-    "action": "hide",
-    "position": "caption",
-    "text": null
   }
 }
 {
@@ -700,55 +722,43 @@
 {
   "command": "TalkScript",
   "data": {
-    "characterName": "イヌ子",
-    "text": "ふふっ、ネコ美ちゃんと意見が合ってよかった！そして、",
-    "gesture": "喜んだ時のブイサイン",
+    "charaId": 0,
+    "text": "今日はここまで！みんな、",
+    "facialExpression": "ウィンク",
     "facing": "camera:0"
   }
 }
 {
   "command": "TalkScript",
   "data": {
-    "characterName": "イヌ子",
-    "text": "みんなも意見を聞いてくれてありがとう！",
-    "gesture": "喜んだ時のブイサイン",
+    "charaId": 0,
+    "text": "一緒にイラストを楽しんでくれてありがとう！",
+    "facialExpression": "ウィンク",
     "facing": "camera:0"
   }
 }
 {
   "command": "TalkScript",
   "data": {
-    "characterName": "イヌ子",
-    "text": "今日のフィクション討論会はここまでだけど、",
-    "gesture": "喜んだ時のブイサイン",
+    "charaId": 0,
+    "text": "次回も楽しい作品をたくさん紹介するから、また遊びに来てね！",
+    "facialExpression": "ウィンク",
     "facing": "camera:0"
   }
 }
 {
   "command": "TalkScript",
   "data": {
-    "characterName": "イヌ子",
-    "text": "また次回も楽しい話題でお会いしようね！バイバーイ！わん！",
-    "gesture": "喜んだ時のブイサイン",
-    "facing": "camera:0"
-  }
-}
-{
-  "command": "TalkScript",
-  "data": {
-    "characterName": "ネコ美",
-    "text": "ええ、今日はこれでおしまいにゃ",
+    "charaId": 1,
+    "text": "ええ、めんどくさいけどまた来てあげるにゃ。じゃあね、みんな。",
     "facialExpression": "あくび",
     "facing": "camera:0"
   }
 }
 {
-  "command": "TalkScript",
+  "command": "Pause",
   "data": {
-    "characterName": "ネコ美",
-    "text": "また次回も面白い討論をしようにゃ。それじゃあ、お疲れ様でした！",
-    "facialExpression": "あくび",
-    "facing": "camera:0"
+    "duration": 2
   }
 }
 ```
