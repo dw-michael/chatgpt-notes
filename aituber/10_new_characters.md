@@ -1,4 +1,4 @@
-[« イントロ](./09_intro.md)
+[« イントロ](./09_intro.md) | [静画紹介 v2 »](./11_improved_seiga.md)
 
 # 概要
 
