@@ -1,4 +1,4 @@
-[« 新しいキャラ設定 »](./10_new_characters.md)
+[« 新しいキャラ設定 »](./10_new_characters.md) | [詳しいキャラ設定 v2 »](./12_detailed_characters.md)
 
 # 概要
 
