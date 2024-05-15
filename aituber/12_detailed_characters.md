@@ -1,4 +1,4 @@
-[« 静画紹介 v2](./11_improved_seiga.md)
+[« 静画紹介 v2](./11_improved_seiga.md) | [claude 使ってみた »](./13_claude.md)
 
 # 概要
 
